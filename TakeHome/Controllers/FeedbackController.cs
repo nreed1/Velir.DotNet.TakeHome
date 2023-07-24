@@ -13,11 +13,12 @@ namespace TakeHome.Controllers
         
         public ActionResult Index()
         {
-            return View();
+            return View("Feedback");
         }
 
         [ValidateInput(true)]
-        public ActionResult Feedback(FeedbackForm form)
+        [HttpPost]
+        public ActionResult Submit(FeedbackForm form)
         {
             if (ModelState.IsValid)
             {
@@ -25,7 +26,7 @@ namespace TakeHome.Controllers
             }
             else
                 ViewBag.Result = "Invalid Entries, Kindly Recheck.";
-            return View();
+            return View("Feedback");
         }
 
     }
